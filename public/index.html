@@ -1,0 +1,62 @@
+<!doctype HTML>
+<html>
+<script src="js/aframe1.min.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"> </script>
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<script src="js/gesture-detector.js"></script>
+<script src="js/gesture-handler.js"></script>
+<script src="js/script.js"></script>
+
+<body style='margin : 0px; overflow: hidden;'>
+  <a-scene embedded arjs="debugUIEnabled:false;sourceType: webcam;" renderer="logarithmicDepthBuffer: true;"
+    vr-mode-ui="enabled: false" gesture-detector id="scene">
+    <a-assets>
+      <a-asset-item id="peacock01" src="models/model-love-peacock-69/peacock01.gltf">
+      </a-asset-item>
+      <a-asset-item id="peacock02" src="models/model-peacock-huai-lan/peacock02.gltf">
+      </a-asset-item>
+      <video type="video/mp4" id="vid" loop="false" src="images/move-on.mp4" webkit-playsinline>
+      </video>
+    </a-assets>
+    <a-marker type="pattern" url="assets/pattern-qrcode-peacock-huai-lan.patt" aycaster="objects: .clickable"
+      emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA">
+      <a-entity scale="0.05 0.05 0.05" position="0.05 0.05 0.05" gltf-model="#peacock02" class="clickable"
+        gesture-handler>
+      </a-entity>
+    </a-marker>
+
+    <a-marker type="pattern" url="assets/pattern-qrcode-love-peacock-69.patt" aycaster="objects: .clickable"
+      emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA">
+      <a-entity scale="0.05 0.05 0.05" position="0.05 0.05 0.05" gltf-model="#peacock01" class="clickable"
+        gesture-handler>
+      </a-entity>
+    </a-marker>
+
+    <a-marker id="video-marker" type="pattern" url="assets/pattern-qrcode-kwanphayao.patt">
+      <a-video position="0 0.5 0" rotation="-90 0 0" src="#vid" vidhandler></a-video>
+    </a-marker>
+
+    <!--<a-marker type="pattern"
+      url="https://arjs-cors-proxy.herokuapp.com/https://firebasestorage.googleapis.com/v0/b/test-ar-js.appspot.com/o/pattern-image4.patt?alt=media&token=464e755e-3400-429c-8f1f-c5ea93473440">
+      <a-plane color="white" rotation="-90 0 0" position="0 -0.25 0" width="3"
+        material="transparent: true; opacity: 0.90"></a-plane>
+      <a-text value="Hello, world!" font="fonts/Exo2Bold.fnt" color="red" rotation="-90 0 0" align="center"
+        scale="2 2 2"></a-text>
+    </a-marker> -->
+
+    <!-- <a-marker preset="hiro" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"
+      id="markerA">
+      <a-entity position="0 0 0" scale="0.05 0.05 0.05" gltf-model="#peacock02" class="clickable" gesture-handler>
+      </a-entity>
+    </a-marker> -->
+    <!-- <a-marker preset="hiro" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"
+      id="markerA">
+      <a-entity scale="0.05 0.05 0.05" position="0.05 0.05 0.05" gltf-model="models/peacock02.gltf" class="clickable"
+        gesture-handler>
+      </a-entity>
+    </a-marker> -->
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+
+</html>
