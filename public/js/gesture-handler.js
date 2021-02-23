@@ -1,6 +1,5 @@
 /* global AFRAME, THREE */
-
-AFRAME.registerComponent("gesture-handler", {
+const gesture = {
   schema: {
     enabled: { default: true },
     rotationFactor: { default: 5 },
@@ -64,4 +63,6 @@ AFRAME.registerComponent("gesture-handler", {
       this.el.object3D.scale.z = this.scaleFactor * this.initialScale.z;
     }
   },
-});
+};
+AFRAME.registerComponent("gesture-handler", gesture);
+AFRAME.registerComponent("gesture-handler1", gesture);
